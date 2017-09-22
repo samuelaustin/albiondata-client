@@ -5,8 +5,8 @@ import (
 	"reflect"
 
 	"github.com/mitchellh/mapstructure"
-	"github.com/regner/albiondata-client/lib"
-	"github.com/regner/albiondata-client/log"
+	"github.com/samuelaustin/albiondata-client/lib"
+	"github.com/samuelaustin/albiondata-client/log"
 )
 
 func decodeRequest(params map[string]interface{}) (operation operation, err error) {
@@ -79,9 +79,23 @@ func decodeEvent(params map[string]interface{}) (event operation, err error) {
 	eventType := params["252"].(int16)
 
 	switch eventType {
+	case 23:
+		event = &eventEquipmentItem{}
+	case 24:
+		event = &eventStackableItem{}
+	case 25:
+		event = &eventFurnitureItem{}
+	case 26:
+		event = &eventJournalItem{}
+	case 42:
+		event = &eventBankContainerContents{}
+	case 75:
+		log.Infof("eventGenericContainerContents")
+		event = &eventGenericContainerContents{}
 	case 77:
 		event = &eventPlayerOnlineStatus{}
 	case 114:
+		log.Infof("eventSkillData")
 		event = &eventSkillData{}
 	default:
 		return nil, nil

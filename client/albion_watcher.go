@@ -4,7 +4,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/regner/albiondata-client/log"
+	"github.com/samuelaustin/albiondata-client/log"
 )
 
 type albionProcessWatcher struct {

@@ -1,7 +1,8 @@
 package client
 
 import (
-	"github.com/regner/albiondata-client/log"
+	"github.com/samuelaustin/albiondata-client/lib"
+	"github.com/samuelaustin/albiondata-client/log"
 )
 
 type Router struct {
@@ -12,7 +13,7 @@ type Router struct {
 
 func newRouter() *Router {
 	return &Router{
-		albionstate:  &albionState{},
+		albionstate:  &albionState{ContainerItemsToSend: make(map[int64]lib.ItemContainer)},
 		newOperation: make(chan operation, 1000),
 		quit:         make(chan bool, 1),
 	}

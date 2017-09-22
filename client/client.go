@@ -2,7 +2,7 @@ package client
 
 import (
 	"github.com/Sirupsen/logrus"
-	"github.com/regner/albiondata-client/log"
+	"github.com/samuelaustin/albiondata-client/log"
 )
 
 type Client struct {

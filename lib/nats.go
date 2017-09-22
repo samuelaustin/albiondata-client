@@ -12,4 +12,6 @@ const (
 	// Private Topics
 	NatsSkillData           = "skills"
 	NatsMarketNotifications = "marketnotifications"
+	NatsBankContainerData    = "bank.container"
+	NatsGenericContainerData = "generic.container"
 )
